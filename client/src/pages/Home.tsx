@@ -13,6 +13,14 @@ const Home = () => {
       'leading-normal',
     )}>
       <Navigation />
+      <div className={classnames(
+        'flex',
+        'flex-col',
+        'md:flex-row',
+        'bg-gray-800',
+      )}>
+        Sidebar and main
+      </div>
     </div>
   );
 };
