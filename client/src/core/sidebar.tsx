@@ -13,7 +13,7 @@ const Sidebar = ({ children }: Props) => {
       'z-10',
       'bottom-0',
       'w-full',
-      'wd:w-48',
+      'md:w-48',
       'h-16',
       'md:h-screen',
       'mt-12',

@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 import Navigation from '../core/navigation';
+import MetricCard from '../components/metric-card';
 import Sidebar from '../core/sidebar';
 import SidebarItem from '../core/sidebar-item';
 
@@ -59,7 +60,35 @@ const Home = () => {
           'md:pb-5',
           'bg-gray-100',
         )}>
-          <div className="bg-gray-800 pt-3"></div>
+          <div className="bg-gray-800 pt-3">
+            <div className={classnames(
+              'rounded-tl-3xl',
+              'bg-gradient-to-r',
+              'from-blue-900',
+              'to-gray-800',
+              'p-4',
+              'shadow',
+              'text-2xl',
+              'text-white',
+            )}>
+              <h3 className="font-bold pl-2">Analytics</h3>
+            </div>
+          </div>
+          <section className="flex flex-wrap">
+            <MetricCard
+              gradient={classnames(
+                'from-green-200',
+                'to-green-100',
+                'border-green-600',
+              )}
+              background="bg-green-600"
+              icon="fa fa-wallet fa-2x fa-inverse"
+              heading="Total Revenue"
+              text="$3249"
+              textColor="text-green-500"
+              textIcon="fas fa-caret-up"
+            />
+          </section>
         </main>
       </div>
     </div>
