@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import GraphCard from '../components/graph-card';
 import Navigation from '../core/navigation';
 import MetricCard from '../components/metric-card';
 import Sidebar from '../core/sidebar';
@@ -88,6 +89,82 @@ const Home = () => {
               textColor="text-green-500"
               textIcon="fas fa-caret-up"
             />
+            <MetricCard
+              gradient={classnames(
+                'from-pink-200',
+                'to-pink-100',
+                'border-pink-500',
+              )}
+              background="bg-pink-500"
+              icon="fas fa-users fa-2x fa-inverse"
+              heading="Total Users"
+              text="249"
+              textColor="text-pink-500"
+              textIcon="fas fa-exchange-alt"
+            />
+            <MetricCard
+              gradient={classnames(
+                'from-yellow-200',
+                'to-yellow-100',
+                'border-yellow-600',
+              )}
+              background="bg-yellow-600"
+              icon="fas fa-user-plus fa-2x fa-inverse"
+              heading="New Users"
+              text="249"
+              textColor="text-yellow-600"
+              textIcon="fas fa-caret-up"
+            />
+            <MetricCard
+              gradient={classnames(
+                'from-blue-200',
+                'to-blue-100',
+                'border-blue-500',
+              )}
+              background="bg-blue-600"
+              icon="fas fa-server fa-2x fa-inverse"
+              heading="Server Uptime"
+              text="152 days"
+              textColor=""
+              textIcon=""
+            />
+            <MetricCard
+              gradient={classnames(
+                'from-indigo-200',
+                'to-indigo-100',
+                'border-indigo-500',
+              )}
+              background="bg-indigo-600"
+              icon="fas fa-tasks fa-2x fa-inverse"
+              heading="To Do List"
+              text="7 Tasks"
+              textColor=""
+              textIcon=""
+            />
+            <MetricCard
+              gradient={classnames(
+                'from-red-200',
+                'to-red-100',
+                'border-red-500',
+              )}
+              background="bg-red-600"
+              icon="fas fa-inbox fa-2x fa-inverse"
+              heading="Issues"
+              text="3"
+              textColor="text-red-500"
+              textIcon="fas fa-caret-up"
+            />
+          </section>
+          <section className={classnames(
+            'flex',
+            'flex-row',
+            'flex-wrap',
+            'flex-grow',
+            'mt-2',
+          )}>
+            <GraphCard title="Bar Chart">
+
+            </GraphCard>
           </section>
         </main>
       </div>
