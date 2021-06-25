@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # Backend
+  server:
+    container_name: backend
+    build: ./server
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    command: npm start
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: development
+      PORT: 4000
+      POSTGRES_URI: postgres://admin:password@postgres:5432/dashboard
+  
+  # Database
+  postgres:
+    container_name: postgres
+    build: ./postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_URL: postgres://admin:password@localhost:5432/dashboard
+      POSTGRES_DB: dashboard
+      POSTGRES_HOST: postgres
+    ports:
+      - "5432:5432"
