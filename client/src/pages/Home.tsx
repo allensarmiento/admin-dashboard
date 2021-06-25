@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import BarChart from '../components/bar-chart';
 import GraphCard from '../components/graph-card';
 import Navigation from '../core/navigation';
 import MetricCard from '../components/metric-card';
@@ -23,36 +24,7 @@ const Home = () => {
         'md:flex-row',
         'bg-gray-800',
       )}>
-        <Sidebar>
-          <SidebarItem
-            hover="hover:border-pink-500"
-            icon="fa fa-tasks"
-            text="text-gray-600 md:text-gray-400"
-          >
-            Tasks
-          </SidebarItem>
-          <SidebarItem
-            hover="hover:border-purple-500"
-            icon="fa fa-envelope"
-            text="text-gray-600 md:text-gray-400"
-          >
-            Messages
-          </SidebarItem>
-          <SidebarItem
-            hover="hover:border-blue-600"
-            icon="fas fa-chart-area text-blue-600"
-            text="text-white md:text-white"
-          >
-            Analytics
-          </SidebarItem>
-          <SidebarItem
-            hover="hover:border-red-500"
-            icon="fa fa-wallet"
-            text="text-gray-600 md:text-gray-400"
-          >
-            Payments
-          </SidebarItem>
-        </Sidebar>
+        <Sidebar />
         <main className={classnames(
           'flex-1',
           'mt-12',
@@ -163,7 +135,31 @@ const Home = () => {
             'mt-2',
           )}>
             <GraphCard title="Bar Chart">
-
+              <BarChart
+                labels={['January', 'February', 'March', 'April']}
+                datasets={[
+                  {
+                    label: 'Page Impressions',
+                    data: [10, 20, 30, 40],
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                  },
+                  {
+                    label: 'Adsense Clicks',
+                    data: [5, 15, 10, 30],
+                    type: 'line',
+                    fill: false,
+                    borderColor: 'rgb(54, 162, 235)',
+                  },
+                ]}
+                options={{
+                  scales: {
+                    yAxes: [{
+                      ticks: { beginAtZero: true },
+                    }]
+                  },
+                }}
+              />
             </GraphCard>
           </section>
         </main>

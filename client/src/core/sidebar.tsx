@@ -1,11 +1,7 @@
 import classnames from 'classnames';
-import { ReactNode } from 'react';
+import SidebarItem from './sidebar-item';
 
-interface Props {
-  children: ReactNode;
-}
-
-const Sidebar = ({ children }: Props) => {
+const Sidebar = () => {
   return (
     <div className={classnames(
       'fixed',
@@ -40,7 +36,34 @@ const Sidebar = ({ children }: Props) => {
           'text-center',
           'md:text-left',
         )}>
-          {children}
+          <SidebarItem
+            hover="hover:border-pink-500"
+            icon="fa fa-tasks"
+            text="text-gray-600 md:text-gray-400"
+          >
+            Tasks
+          </SidebarItem>
+          <SidebarItem
+            hover="hover:border-purple-500"
+            icon="fa fa-envelope"
+            text="text-gray-600 md:text-gray-400"
+          >
+            Messages
+          </SidebarItem>
+          <SidebarItem
+            hover="hover:border-blue-600"
+            icon="fas fa-chart-area text-blue-600"
+            text="text-white md:text-white"
+          >
+            Analytics
+          </SidebarItem>
+          <SidebarItem
+            hover="hover:border-red-500"
+            icon="fa fa-wallet"
+            text="text-gray-600 md:text-gray-400"
+          >
+            Payments
+          </SidebarItem>
         </ul>
       </div>
     </div>
