@@ -4,7 +4,6 @@ import GraphCard from '../components/graph-card';
 import Navigation from '../core/navigation';
 import MetricCard from '../components/metric-card';
 import Sidebar from '../core/sidebar';
-import SidebarItem from '../core/sidebar-item';
 
 const Home = () => {
   return (
