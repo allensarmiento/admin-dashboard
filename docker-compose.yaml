@@ -1,14 +1,26 @@
 version: '3.8'
 
 services:
+  # Client
+  client:
+    container_name: client
+    build: ./client
+    volumes:
+      - ./client:/usr/src/app/client
+      - /usr/src/app/client/node_modules
+    working_dir: /usr/src/app/client
+    command: npm start
+    ports:
+      - "3000:3000"
+
   # Backend
   server:
     container_name: backend
     build: ./server
     volumes:
-      - ./server:/usr/src/app
-      - /usr/src/app/node_modules
-    working_dir: /usr/src/app
+      - ./server:/usr/src/app/server
+      - /usr/src/app/server/node_modules
+    working_dir: /usr/src/app/server
     command: npm start
     ports:
       - "4000:4000"
