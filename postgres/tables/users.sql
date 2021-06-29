@@ -1,11 +1,10 @@
 BEGIN TRANSACTION;
 
 CREATE TABLE users (
-  id serial INTEGER NOT NULL,
-  name varchar(100),
+  id serial PRIMARY KEY,
   email text UNIQUE NOT NULL,
-  password varchar(100) NOT NULL,
-  created TIMESTAMP NOT NULL,
+  password varchar(200) NOT NULL,
+  created TIMESTAMP NOT NULL
 );
 
 COMMIT;

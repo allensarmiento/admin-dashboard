@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
-import jwt from 'jsonwebtoken';
+import { BadRequestError } from '../../errors/bad-request-error';
+import { validateRequest } from '../../middlewares/validate-request';
+import { user } from '../../models/user';
 
 const router = express.Router();
 
@@ -12,7 +14,23 @@ router.post(
       .isLength({ min: 4, max: 20 })
       .withMessage('Password must be between 4 and 20 characters'),
   ],
-  (req: Request, res: Response) => {
+  validateRequest,
+  async (req: Request, res: Response) => {
+    const { email, password } = req.body;
+    
+    // Check if the user already exists
+    const existingUser = await user.findOneByEmail(email);
+    if (existingUser) {
+      throw new BadRequestError('Email in use');
+    }
+
+    // Create new user
+    const newUser = await user.build(email, password);
+    if (!newUser) {
+      throw new BadRequestError('Could not register user');
+    }
+
+    res.status(201).send(newUser);
   },
 );
 
